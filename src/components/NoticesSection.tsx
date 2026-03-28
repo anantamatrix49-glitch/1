@@ -1,13 +1,10 @@
-import { Bell, ImageOff, X } from "lucide-react";
-import React, { useState } from "react";
+import { Bell } from "lucide-react";
+import React from "react";
 import { notices } from "@/data/studyData";
 
 const NoticesSection = () => {
-  const [showLogo, setShowLogo] = useState(false);
-
   const handleImageClick = (e: React.MouseEvent, image: string) => {
     e.preventDefault();
-    setShowLogo(true);
     window.open(image, "_blank");
   };
 
@@ -53,21 +50,6 @@ const NoticesSection = () => {
                 </div>
               </a>
 
-                {/* AK logo shown on left when image clicked */}
-                {showLogo && (
-                  <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 pointer-events-auto">
-                    <div className="relative">
-                      <img src="/ak-logo.svg" alt="AK logo" className="w-16 h-16 rounded-lg shadow-lg" />
-                      <button
-                        aria-label="Close AK logo"
-                        onClick={() => setShowLogo(false)}
-                        className="absolute -top-2 -right-2 bg-card rounded-full p-1 shadow-md"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                )}
               <div className="p-4">
                 <p className="text-xs text-muted-foreground mb-1">{notice.date}</p>
                 <h3 className="font-semibold text-foreground text-sm leading-snug">{notice.title}</h3>
